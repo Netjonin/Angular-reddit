@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Article } from './article/article.model';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,14 @@ export class AppComponent {
   addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
      console.log(`Adding article title: ${title.value} and link: ${link.value}`);
      return false;
+    }
+    articles: Article[];
+    constructor() {
+      this.articles = [
+        new Article('Angular', 'http://angular.io', 3),
+        new Article('Fullstack', 'http://fullstack.io', 2),
+        new Article('Golang', 'http://golang.dev', 4)
+      ];
     }
     
 }
